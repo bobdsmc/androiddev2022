@@ -1,21 +1,22 @@
-package vn.edu.usth.weatheractivity;
+package vn.edu.usth.weather;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-
 import android.util.Log;
 
-
-public class weatheractivity extends AppCompatActivity {
+public class WeatherActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_weather);
-        Log.i("Weather","onStart() called");
-    }
+        ForecastFragment ff = ForecastFragment.newInstance("","");
+        // Add the fragment to the 'container' FrameLayout
+        getSupportFragmentManager().beginTransaction().add(
+                R.id.container, ff).commit();
 
+    }
     @Override
     protected void onStart() {
         super.onStart();
